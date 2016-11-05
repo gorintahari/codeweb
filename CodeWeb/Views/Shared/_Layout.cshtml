@@ -3,39 +3,337 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Code Web</title>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        body {
+            background: url(../images/texture_green_cup.jpg);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+            .content h1 {
+                font-weight: 400;
+                text-transform: uppercase;
+                margin: 0;
+                color: #fff;
+            }
+
+            .content h2 {
+                font-weight: 400;
+                text-transform: uppercase;
+                color: #333;
+                margin: 0 0 20px;
+            }
+
+            .content p {
+                font-size: 1em;
+                font-weight: 300;
+                line-height: 1.5em;
+                margin: 0 0 20px;
+            }
+
+                .content p:last-child {
+                    margin: 0;
+                }
+
+            .content a.button {
+                display: inline-block;
+                padding: 10px 20px;
+                background: #ff0;
+                color: #000;
+                text-decoration: none;
+            }
+
+                .content a.button:hover {
+                    background: #000;
+                    color: #ff0;
+                }
+
+            .content.title {
+                position: relative;
+                background: #333;
+            }
+
+                .content.title h1 span.demo {
+                    display: inline-block;
+                    font-size: .5em;
+                    padding: 10px;
+                    background: #fff;
+                    color: #333;
+                    vertical-align: top;
+                }
+
+                .content.title .back-to-article {
+                    position: absolute;
+                    bottom: -20px;
+                    left: 20px;
+                }
+
+                    .content.title .back-to-article a {
+                        padding: 10px 20px;
+                        background: #f60;
+                        color: #fff;
+                        text-decoration: none;
+                    }
+
+                        .content.title .back-to-article a:hover {
+                            background: #f90;
+                        }
+
+                        .content.title .back-to-article a i {
+                            margin-left: 5px;
+                        }
+
+            .content.white {
+                background: #fff;
+                box-shadow: 0 0 10px #999;
+            }
+
+            .content.black {
+                background: #000;
+            }
+
+                .content.black p {
+                    color: #999;
+                }
+
+                    .content.black p a {
+                        color: #08c;
+                    }
+
+
+        .dropdown-menu {
+            min-width: 200px;
+        }
+
+            .dropdown-menu.columns-2 {
+                min-width: 400px;
+            }
+
+            .dropdown-menu.columns-3 {
+                min-width: 600px;
+            }
+
+            .dropdown-menu li a {
+                padding: 5px 15px;
+                font-weight: 300;
+            }
+
+        .multi-column-dropdown {
+            list-style: none;
+        }
+
+            .multi-column-dropdown li a {
+                display: block;
+                clear: both;
+                line-height: 1.428571429;
+                color: #333;
+                white-space: normal;
+            }
+
+                .multi-column-dropdown li a:hover {
+                    text-decoration: none;
+                    color: #262626;
+                    background-color: #f5f5f5;
+                }
+
+
+        .rightMenu {
+            top: 0;
+            left: 298px;
+            right: 0;
+        }
+
+        ul.nav li.dropdown:hover ul.dropdown-menu {
+            display: block;
+        }
+
+        .caret-right {
+            float: right;
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 2px;
+            vertical-align: middle;
+            border-left: 5px solid;
+            border-left-color: #999999;
+            border-bottom: 5px solid transparent;
+            border-top: 5px solid transparent;
+            margin-top: 5px;
+            margin-right: -8px;
+        }
+
+        @@media (max-width: 767px) {
+            .dropdown-menu.multi-column {
+                min-width: 240px !important;
+                overflow-x: hidden;
+            }
+        }
+
+        @@media (max-width: 480px) {
+            .content {
+                width: 90%;
+                margin: 50px auto;
+                padding: 10px;
+            }
+        }
+
+        @@media (min-width: 768px) {
+            .navbar-collapse {
+                height: auto;
+                border-top: 0;
+                box-shadow: none;
+                max-height: none;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+                .navbar-collapse.collapse {
+                    display: block !important;
+                    width: auto !important;
+                    padding-bottom: 0;
+                    overflow: visible !important;
+                }
+
+                .navbar-collapse.in {
+                    overflow-x: visible;
+                }
+
+            .navbar {
+                max-width: 300px;
+                margin-right: 0;
+                margin-left: 0;
+            }
+
+            .navbar-nav,
+            .navbar-nav > li,
+            .navbar-left,
+            .navbar-right,
+            .navbar-header {
+                float: none !important;
+            }
+
+                .navbar-right .dropdown-menu {
+                    left: 0;
+                    right: auto;
+                }
+
+            .navbar-collapse .navbar-nav.navbar-right:last-child {
+                margin-right: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" style="height:100px;background-color:black;"></div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-md-3">
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Code Web</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i>  Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Technologies <b class="caret-right"></b></a>
+                    <ul class="dropdown-menu multi-column  columns-3 rightMenu">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="#">Asp.net</a></li>
+                                    <li><a href="#">Asp.net MVC</a></li>
+                                    <li><a href="#">C#</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Sql Server</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Jquery</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-4">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-4">
+                                <ul class="multi-column-dropdown">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">One more separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </nav>
+                </div>
+    @*<div class="content title">
+            <h1>CodeWeb <span class="demo">Home</h1>
+            <span class="back-to-article"><a href="#">Home <i class="fa fa-angle-right"></i></a></span>
+        </div>*@
+<div class="col-md-9">
+
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        </div>
     </div>
+</div>
+        </div>
+
+
+        <footer class="navbar-default navbar-fixed-bottom" style="background-color:black;">
+            <div class="container-fluid">
+                <p><i class="fa "></i>  <a href="/"></a>By Code Web</p>
+            </div>
+        </footer>   
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
